@@ -10,30 +10,17 @@ import Cycles from "./components/Cycles";
 import DefaultButton from "./components/DefaultButton";
 import { PlayCircleIcon } from "lucide-react";
 import Footer from "./components/Footer";
-import Heading from "./components/Heading";
-import { useState } from "react";
+
+
 
 export default function App() {
 
-// const [numero, setNumero] = useState(()=>{
-//   console.log('Lazy Initialization');
-//   return 0;
-// });
 
-const [numero, setNumero] = useState(0);
-
-  function handleClick(){
-    setNumero(prevState => prevState + 1);
-  }
 
   return (
     <>
-
-      <Heading>Número: <span id='numero'> {numero}</span></Heading>
-      <button onClick={handleClick}>Aumenta</button>
-
       <Container>
-        <Logo/>
+        <Logo/> 
       </Container>
 
       <Container>
@@ -47,7 +34,7 @@ const [numero, setNumero] = useState(0);
       <Container>
      <form className="form" action="">
       <div className="formRow">
-      <DefaultInput labelText={numero.toString()} title="Title" id='input' type='text'/>
+      <DefaultInput labelText='Task' title="Title" id='input' type='text'/>
       </div>
 
       <div className="formRow">
