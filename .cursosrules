@@ -1,0 +1,3 @@
+Quando o usuário pedir para construir ou melhorar componentes de interface, páginas, layouts ou qualquer elemento visual, carregue e siga as instruções em .claude/skills/frontend-design/SKILL.md antes de escrever qualquer código
+
+Quando o usuário for implementar uma nova feature, corrigir um bug ou fazer refatoração, carregue e siga as instruções em .claude/skills/test-driven-development/SKILL.md antes de escrever qualquer código de produção.

@@ -4,11 +4,12 @@ import Home from "./pages/Home";
 import "./assets/styles/global.css";
 import "./assets/styles/theme.css";
 import type { TaskStateModel } from "./models/TaskStateModel";
+import TaskContext from "./contexts/TaskContext";
 
 const initialState: TaskStateModel = {
   tasks: [],
   secondsRemaining: 0,
-  formattedSecondsRemaining: "05:00",
+  formattedSecondsRemaining: "00:00",
   activeTask: null,
   currentCycle: 0,
   config: {
@@ -21,5 +22,9 @@ const initialState: TaskStateModel = {
 export default function App() {
   const [state, setState] = useState(initialState);
 
-  return <Home state={state} setState={setState} />;
+  return (
+    <TaskContext.Provider value={{ state, setState }}>
+      <Home />
+    </TaskContext.Provider>
+  );
 }
