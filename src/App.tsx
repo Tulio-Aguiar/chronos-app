@@ -6,6 +6,7 @@ import { TaskContextProvider } from "./contexts/TaskContext";
 
 export default function App() {
   return (
+    // Peça 2
     <TaskContextProvider>
       <Home />
     </TaskContextProvider>
