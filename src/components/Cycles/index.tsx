@@ -1,24 +1,34 @@
-import styles from './styles.module.css'
+import { useTaskContext } from "../../contexts/TaskContext/useTaskContext";
+import { getNextCycle } from "../../utils/getNextCycle";
+import { getNextCycleType } from "../../utils/getNextCycleType";
+import styles from "./styles.module.css";
 
-export default function Cycles(){
-    return(
-        <>
-        <div className={styles.cycles}>
+export default function Cycles() {
+  const { state } = useTaskContext();
 
-            <span>Ciclos:</span>
+  const cycleStep = Array.from({ length: state.currentCycle });
 
-            <div className={styles.cycleDots}>
-                <span className={`${styles.cycleDot} ${styles.workTime}`}></span>
-                <span className={`${styles.cycleDot} ${styles.shortBreakTime}`}></span>
-                <span className={`${styles.cycleDot} ${styles.workTime}`}></span>
-                <span className={`${styles.cycleDot} ${styles.shortBreakTime}`}></span>
-                <span className={`${styles.cycleDot} ${styles.workTime}`}></span>
-                <span className={`${styles.cycleDot} ${styles.shortBreakTime}`}></span>
-                <span className={`${styles.cycleDot} ${styles.workTime}`}></span>
-                <span className={`${styles.cycleDot} ${styles.longBreakTime}`}></span>
-            </div>
+  const cycleDescriptionMap = {
+    workTime: "Foco de trabalho",
+    shortBreakTime: "Intervalo de pausa curto",
+    longBreakTime: "Intervalo de pausa longo",
+  };
 
-        </div>
-        </>
-    )
+  console.log(cycleStep);
+  return (
+    <div className={styles.cycleDots}>
+      {cycleStep.map((_, index) => {
+        const nextCycle = getNextCycle(index);
+        const nextCycleType = getNextCycleType(nextCycle);
+        return (
+          <span
+            key={`${nextCycleType}`}
+            className={`${styles.cycleDot} ${styles[nextCycleType]}`}
+            aria-label={`Indicaddor de ciclos de ${cycleDescriptionMap[nextCycleType]}`}
+            title={`Indicaddor de ciclos de ${cycleDescriptionMap[nextCycleType]}`}
+          ></span>
+        );
+      })}
+    </div>
+  );
 }
