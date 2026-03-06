@@ -22,7 +22,7 @@ export default function Cycles() {
         const nextCycleType = getNextCycleType(nextCycle);
         return (
           <span
-            key={`${nextCycleType}`}
+            key={`cycle-${index}`}
             className={`${styles.cycleDot} ${styles[nextCycleType]}`}
             aria-label={`Indicaddor de ciclos de ${cycleDescriptionMap[nextCycleType]}`}
             title={`Indicaddor de ciclos de ${cycleDescriptionMap[nextCycleType]}`}
