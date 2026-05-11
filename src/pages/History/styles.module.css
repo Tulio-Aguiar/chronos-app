@@ -1,0 +1,74 @@
+.buttonContainer button {
+  min-width: auto;
+  margin: 0;
+  padding: 1rem;
+}
+
+.buttonContainer button svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.responsiveTable {
+  overflow-x: auto;
+  border-radius: 0.8rem;
+}
+
+.responsiveTable table {
+  width: 100%;
+  min-width: 64rem;
+  font-size: 1.6rem;
+  border-collapse: collapse;
+}
+
+.responsiveTable th {
+  background-color: var(--gray-600);
+}
+
+.responsiveTable td {
+  background-color: var(--gray-800);
+}
+
+.responsiveTable th,
+.responsiveTable td {
+  border-bottom: 0.2rem solid var(--gray-700);
+  text-align: left;
+  padding: 1.6rem;
+}
+
+.thSort {
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+.thSort:hover {
+  filter: brightness(80%);
+}
+
+.noTasks {
+  text-align: center;
+  padding: 1.6rem;
+  font-size: 1.6rem;
+  color: var(--gray-400);
+  font-weight: bold;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.1s ease-in-out;
+}
+.link:hover {
+  filter: brightness(80%);
+}
+
+.linkIcon {
+  width: 1.6rem;
+  height: 1.6rem;
+  flex-shrink: 0;
+  color: var(--primary);
+  transition: all 0.1s ease-in-out;
+  margin-right: 0.5rem;
+}

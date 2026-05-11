@@ -14,7 +14,6 @@ export default function Cycles() {
     longBreakTime: "Intervalo de pausa longo",
   };
 
-  console.log(cycleStep);
   return (
     <div className={styles.cycleDots}>
       {cycleStep.map((_, index) => {
@@ -24,8 +23,8 @@ export default function Cycles() {
           <span
             key={`cycle-${index}`}
             className={`${styles.cycleDot} ${styles[nextCycleType]}`}
-            aria-label={`Indicaddor de ciclos de ${cycleDescriptionMap[nextCycleType]}`}
-            title={`Indicaddor de ciclos de ${cycleDescriptionMap[nextCycleType]}`}
+            aria-label={`Indicador de ciclos de ${cycleDescriptionMap[nextCycleType]}`}
+            title={`Indicador de ciclos de ${cycleDescriptionMap[nextCycleType]}`}
           ></span>
         );
       })}

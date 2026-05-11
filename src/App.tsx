@@ -1,14 +1,17 @@
-import Home from "./pages/Home";
+import { TaskContextProvider } from "./contexts/TaskContext/TaskContextProvider";
+import MessagesContainer from "./MessagesContainer";
+import MainRouter from "./routers/MainRouter";
 
 import "./assets/styles/global.css";
 import "./assets/styles/theme.css";
-import { TaskContextProvider } from "./contexts/TaskContext/TaskContextProvider";
 
 export default function App() {
   return (
     // Peça 2
     <TaskContextProvider>
-      <Home />
+      <MessagesContainer>
+        <MainRouter />
+      </MessagesContainer>
     </TaskContextProvider>
   );
 }
