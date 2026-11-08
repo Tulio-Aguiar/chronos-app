@@ -5,6 +5,7 @@ import { taskReducer } from "./taskReducer";
 import { TimerWorkerManager } from "../../workers/TimerWorkerManager";
 import { TaskActionTypes } from "./taskActions";
 import { loadBeep } from "../../utils/LoadBeep";
+import { formatSecondsToMinutes } from "../../utils/formatSecondsToMinutes";
 
 type TaskContextProviderProps = {
   children: React.ReactNode;
@@ -13,7 +14,25 @@ type TaskContextProviderProps = {
 export function TaskContextProvider({ children }: TaskContextProviderProps) {
   const [state, dispatch] = useReducer(taskReducer, initialTaskState, () => {
     const storedState = localStorage.getItem("taskState");
-    return storedState ? JSON.parse(storedState) : initialTaskState;
+    if (!storedState) return initialTaskState;
+
+    try {
+      const parsed = JSON.parse(storedState);
+      // secondsRemaining is not persisted; the worker computes
+      // endDate = startDate + secondsRemaining * 1000, so use the full duration.
+      const secondsRemaining = parsed.activeTask
+        ? parsed.activeTask.duration * 60
+        : 0;
+
+      return {
+        ...initialTaskState,
+        ...parsed,
+        secondsRemaining,
+        formattedSecondsRemaining: formatSecondsToMinutes(secondsRemaining),
+      };
+    } catch {
+      return initialTaskState;
+    }
   });
   const playBeepRef = useRef<ReturnType<typeof loadBeep> | null>(null);
 
