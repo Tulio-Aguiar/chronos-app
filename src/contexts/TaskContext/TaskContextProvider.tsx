@@ -92,10 +92,8 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
 
   useEffect(() => {
     if (state.activeTask && playBeepRef.current === null) {
-      console.log("Carregando Áudio...");
       playBeepRef.current = loadBeep();
     } else {
-      console.log("Destruindo Áudio...");
       playBeepRef.current = null;
     }
   }, [state.activeTask]);

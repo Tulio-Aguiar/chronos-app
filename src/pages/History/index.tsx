@@ -156,13 +156,6 @@ export default function History() {
                       </tr>
                     );
                   })}
-                  <tr>
-                    <td>Tarefa 1</td>
-                    <td>25 minutos</td>
-                    <td>2026-05-07</td>
-                    <td>Completada</td>
-                    <td>Trabalho</td>
-                  </tr>
                 </tbody>
               </table>
             </div>
