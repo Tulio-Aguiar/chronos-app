@@ -30,7 +30,7 @@ export default function Settings() {
     const longBreakTime = Number(longBreakTimeInputRef.current?.value);
 
     if (isNaN(workTime) || isNaN(shortBreakTime) || isNaN(longBreakTime)) {
-      formErrors.push("Digie Apenas Números para todos os campos");
+      formErrors.push("Digite apenas números em todos os campos");
     }
 
     if (workTime < 1 || shortBreakTime < 1 || longBreakTime < 1) {
@@ -79,7 +79,7 @@ export default function Settings() {
             <div className="formRow">
               <DefaultInput
                 id="worktime"
-                labelText="foco"
+                labelText="Foco"
                 ref={worTimeInputRef}
                 defaultValue={state.config.workTime}
                 type="number"
